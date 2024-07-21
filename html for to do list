@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="title">Arun's To Do List</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Contacts</a></li>
+                    <li><a href="#">Sign in</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="tasks-container">
+                <ul id="task-list">
+                    <li class="task-item">
+                        <input type="checkbox">
+                        <span>Morning Yoga</span>
+                    </li>
+                    <li class="task-item">
+                        <input type="checkbox">
+                        <span>Read a Book</span>
+                    </li>
+                    <li class="task-item">
+                        <input type="checkbox">
+                        <span>Attend Meetings</span>
+                    </li>
+                    <li class="task-item">
+                        <input type="checkbox">
+                        <span>Go for a Walk</span>
+                    </li>
+                    <li class="task-item">
+                        <input type="checkbox">
+                        <span>Cook a Healthy Meal</span>
+                    </li>
+                    <li class="task-item">
+                        <input type="checkbox">
+                        <span>Work on Project</span>
+                    </li>
+                    <li class="task-item">
+                        <input type="checkbox">
+                        <span>Call a Friend</span>
+                    </li>
+                    <li class="task-item">
+                        <input type="checkbox">
+                        <span>Prepare for Tomorrow</span>
+                    </li>
+                    <li class="task-item">
+                        <input type="checkbox">
+                        <span>Relax with Music</span>
+                    </li>
+                </ul>
+            </div>
+            <form id="todo-form">
+                <input type="text" id="new-task" placeholder="Add a new task..." required>
+                <button type="submit">Add Task</button>
+            </form>
+        </main>
+        <footer>
+            <p>&copy; 2024 To-Do List</p>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
