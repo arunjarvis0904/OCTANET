@@ -1,0 +1,55 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+
+const app = express();
+const port = 3000;
+
+app.use(bodyParser.json());
+
+ 
+let tasks = [];
+let nextId = 1;
+
+ 
+app.post('/tasks', (req, res) => {
+    const task = { id: nextId++, ...req.body };
+    tasks.push(task);
+    res.status(201).json(task);
+});
+
+ 
+app.get('/tasks', (req, res) => {
+    res.status(200).json(tasks);
+});
+
+ 
+app.put('/tasks/:id', (req, res) => {
+    const taskId = parseInt(req.params.id, 10);
+    const updatedTask = req.body;
+    let task = tasks.find(t => t.id === taskId);
+    
+    if (task) {
+        task = { ...task, ...updatedTask };
+        tasks = tasks.map(t => (t.id === taskId ? task : t));
+        res.status(200).json(task);
+    } else {
+        res.status(404).json({ message: 'Task not found' });
+    }
+});
+
+
+app.delete('/tasks/:id', (req, res) => {
+    const taskId = parseInt(req.params.id, 10);
+    const initialLength = tasks.length;
+    tasks = tasks.filter(t => t.id !== taskId);
+    
+    if (tasks.length < initialLength) {
+        res.status(200).json({ message: 'Task deleted' });
+    } else {
+        res.status(404).json({ message: 'Task not found' });
+    }
+});
+
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+});
